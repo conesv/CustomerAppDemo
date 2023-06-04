@@ -1,0 +1,32 @@
+﻿@model Product
+
+@{
+}
+
+<div class="text-center border" style="width:50%">
+    <h1 class="display-5"> Nuevo producto</h1>
+
+    <form asp-action="CrearProductForm" method="post" class="m-2">
+        @*<div asp-validation-summary="All"></div>*@
+        <div class="form-group">
+            <label asp-for="Name" class="form-label">Nombre</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price" class="form-label">Precio</label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Logo" class="form-label">Logo</label>
+            <input asp-for="Logo" class="form-control" />
+        </div>
+
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+        @*<div asp-validation-for="All" class="texalert-danger"></div>*@
+    </form>
+</div>

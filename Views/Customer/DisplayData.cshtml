@@ -1,0 +1,23 @@
+﻿@model Customer
+@{
+}
+
+<div class="d-flex justify-content-center">
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.FirstName  @Model.LastName</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@Model.Id</h6>
+        <p class=""> @Model.Address </p>
+        <p class=""> Phone: @Model.Phone </p>
+        <a href="#" class="card-link">@Model.Email</a>
+            <p>status <input type="checkbox" asp-for="@Model.status" /></p>
+
+            <a class="btn btn-primary" asp-controller="customer" asp-action="ModificarCustomer" asp-route-id="@Model.Id">Modificar </a>
+            <hr style="background-color: transparent;" />
+            <a class="btn btn-danger" asp-controller="customer" asp-action="BajaCustomer" asp-route-id="@Model.Id">Cambiar estatus a @(Model.status ? "Inactivo" : "Activo") </a>
+            <hr style="background-color: transparent;" />
+            <a class="btn btn-dark" asp-controller="customer" asp-action="Identificarse" asp-route-id="@Model.Id">Identificarse como este usuario</a>
+        </div>
+</div>
+</div>
+

@@ -1,0 +1,47 @@
+﻿@model Customer
+@{
+}
+<div class="text-center border" style="width:50%">
+    <h1 class="display-5"> new customer</h1>
+
+    <form asp-action="NewCustomerForm" method="post" class="m-2">
+        <div asp-validation-summary="All"></div>
+        <div class="form-group">
+            <label asp-for="FirstName" class="form-label">Nombre</label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName" class="form-label">Appellido</label>
+            <input asp-for="LastName" class="form-control"  />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="form-label">Email</label>
+            <input type="email" asp-for="Email" class="form-control" placeholder="name@example.com" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Phone" class="form-label">Telefono</label>
+            <input asp-for="Phone" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Address" class="form-label">Direccion</label>
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="status" class="form-label">Estatus</label>
+            <select asp-for="status" class="form-select" >
+                <option>Elija una opcion</option>
+                <option value="true">Activo</option>
+                <option value="false">Inactivo</option>
+            </select>
+        </div>
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+        <div asp-validation-for="All" class="texalert-danger"></div>
+    </form>
+</div>

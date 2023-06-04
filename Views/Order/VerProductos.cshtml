@@ -1,0 +1,29 @@
+﻿@model Order
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1 class="text-center">Productos</h1>
+<hr style="background-color: transparent;" />
+<div class="row">
+@foreach (var product in Model.OrderProducts)
+{
+    <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+                <span class="badge bg-danger">@product.cantidad</span>
+                <img class="card-img-top" src="@product.Product.Logo" alt="Card image cap" width="300" height="400">
+            <div class="card-body">
+                    <h5 class="card-title">@product.Product.Name</h5>
+                    <p class="card-text">$ @product.Product.Price</p>
+                    <a class= "btn btn-danger" asp-controller="Order" asp-action="RemoverDeOrden" asp-route-id="@Model.Id" asp-route-pid="@product.Product.Id">Eliminar 1</a>
+                    <a class="btn btn-success" asp-controller="Order" asp-action="AddOne" asp-route-id="@Model.Id" asp-route-pid="@product.Product.Id">Añadir 1 </a>
+            </div>
+            <div class="card-body">
+            </div>
+        </div>
+    </div>
+}
+<a class="btn btn-dark" asp-controller="Order" asp-action="addProduct" asp-route-id="@Model.Id"> Añadir productos</a>
+
+</div>

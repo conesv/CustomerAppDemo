@@ -1,0 +1,27 @@
+﻿@using CustomerApp.Controllers;
+@model List<Product>
+@{
+}
+<div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.Logo" alt="Card image cap" width="300" height="400">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">$ @item.Price</p>
+                    </div>
+                    <div class="card-body">
+                        <a class="card-link" asp-controller="Product" asp-action="AddProduct" asp-route-id="@item.Id">Add to order</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <br />
+    <div>
+        <a class="btn btn-success float-right" asp-controller="Product" asp-action="CrearProductForm">Create Product</a>
+    </div>
+</div>
